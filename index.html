@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Assingment 1</title>
+  <link rel="icon" href="favicon.ico">
+  <script>
+    window.onload = function() {
+
+      var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Active Power Vs. Reactive Power Vs. Apparent Power "
+        },
+        axisX: {
+          includeZero: true,
+          valueFormatString: "MMM",
+          interval: 1,
+          intervalType: "month"
+
+        },
+        axisY: {
+          includeZero: true,
+          suffix: " W"
+        },
+        data: [{
+            type: "splineArea",
+            yValueFormatString: "##",
+            dataPoints: [{
+                x: new Date(2020, 0, 1),
+                y: 20
+              },
+              {
+                x: new Date(2020, 1, 1),
+                y: 40
+              },
+              {
+                x: new Date(2020, 2, 1),
+                y: 30
+              },
+              {
+                x: new Date(2020, 3, 1),
+                y: 15
+              },
+              {
+                x: new Date(2020, 4, 1),
+                y: 75
+              },
+              {
+                x: new Date(2020, 5, 1),
+                y: 25
+              },
+              {
+                x: new Date(2020, 6, 1),
+                y: 80
+              }
+            ]
+          },
+          {
+            type: "splineArea",
+            yValueFormatString: "##",
+            dataPoints: [{
+                x: new Date(2020, 0, 1),
+                y: 60
+              },
+              {
+                x: new Date(2020, 1, 1),
+                y: 55
+              },
+              {
+                x: new Date(2020, 2, 1),
+                y: 70
+              },
+              {
+                x: new Date(2020, 3, 1),
+                y: 65
+              },
+              {
+                x: new Date(2020, 4, 1),
+                y: 45
+              },
+              {
+                x: new Date(2020, 5, 1),
+                y: 40
+              },
+              {
+                x: new Date(2020, 6, 1),
+                y: 30
+              }
+            ]
+          }
+        ]
+      });
+      chart.render();
+
+      function toggleDataSeries(e) {
+        if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+          e.dataSeries.visible = false;
+        } else {
+          e.dataSeries.visible = true;
+        }
+        chart.render();
+      }
+
+    }
+  </script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['A', 'B'],
+        ['My all', 70],
+        ['', 30]
+
+      ]);
+
+      var options = {
+        pieHole: 0.5,
+        pieSliceTextStyle: {
+          color: 'black',
+        },
+        legend: 'none'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
+      chart.draw(data, options);
+    }
+  </script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Month', 'Phase1', 'Phase2'],
+        ['January', 215, 265],
+        ['February', 205, 250],
+        ['March', 240, 275],
+        ['April', 220, 210],
+        ['May', 250, 245],
+        ['June', 265, 250],
+        ['July', 210, 230]
+      ]);
+
+      var options = {
+        title: 'Voltage phase',
+        curveType: 'function',
+        legend: {
+          position: 'bottom'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Month', 'Phase1', 'Phase2'],
+        ['January', 270, 210],
+        ['February', 270, 250],
+        ['March', 270, 210],
+        ['April', 270, 250],
+        ['May', 270, 210],
+        ['June', 270, 250],
+        ['July', 270, 210]
+      ]);
+
+      var options = {
+        title: 'Voltage Line',
+        curveType: 'function',
+        legend: {
+          position: 'bottom'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+
+      chart.draw(data, options);
+    }
+  </script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Month', 'Current1', 'Current2'],
+        ['January', 270, 210],
+        ['February', 270, 250],
+        ['March', 270, 210],
+        ['April', 270, 250],
+        ['May', 270, 210],
+        ['June', 270, 250],
+        ['July', 270, 210]
+
+      ]);
+
+      var options = {
+        title: 'Current(Amperage)',
+        curveType: 'function',
+        legend: {
+          position: 'bottom'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart3'));
+
+      chart.draw(data, options);
+    }
+  </script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Month', 'Voltage', 'Current'],
+        ['January', 270, 210],
+        ['February', 270, 250],
+        ['March', 270, 210],
+        ['April', 270, 250],
+        ['May', 270, 210],
+        ['June', 270, 250],
+        ['July', 270, 210]
+      ]);
+
+      var options = {
+        title: 'Voltage Harmonic Vs Current Harmonic',
+        curveType: 'function',
+        legend: {
+          position: 'bottom'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart4'));
+
+      chart.draw(data, options);
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!--main page  -->
+    <div class="row">
+      <div class="col col-lg-2" id="left">
+        <div class="row">
+          <div class="col">
+            <div class="upper">
+              <div class="1">
+                <a href="#" class="zrey"><i class="fab fa-adn fa-2x shadow"></i> AdminLTE 3</a>
+              </div>
+              <hr>
+              <div class="2">
+                <a href="#" class="zrey"><i class="far fa-user-circle fa-2x shadow"></i> Alexander Pierce</a>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <div class="dashboard">
+              <h6 class="zrey"><i class="fas fa-tachometer-alt "></i> Dashboard</h6>
+              <div class="dashboard-content">
+                <a href="#" class="zrey"> <i class="fas fa-th" style="margin-right: 5px"></i> Meters </a>
+                <br>
+                <a class="zrey" href="#"><i class="fas fa-copy " style="margin-right: 5px"></i> Layout Options <i class="fas fa-angle-left"></i></a>
+                <br>
+                <a class="zrey" href="#"><i class="fas fa-chart-pie " style="margin-right: 2px"></i> Charts <i class="fas fa-angle-left"></i></a>
+                <br>
+                <a class="zrey" href="#"><i class="fas fa-tree " style="margin-right: 7px"></i> UI Elements <i class="fas fa-angle-left"></i></a>
+                <br>
+                <a class="zrey" href="#"><i class="fas fa-edit " style="margin-right: 3px"></i> Forms <i class="fas fa-angle-left"></i></a>
+                <br>
+                <a class="zrey" href="#"><i class="fas fa-table " style="margin-right: 3px"></i> Tables <i class="fas fa-angle-left"></i></a>
+                <br>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <div class="examples">
+              <h6 id="examples" class="zrey">EXAMPLES</h6>
+              <div class="examples-content">
+                <a class="zrey" href="#"><i class="fas fa-calendar-alt " style="margin-right: 5px"></i> Calendar </a>
+                <br>
+                <a class="zrey" href="#"><i class="far fa-image " style="margin-right: 5px"></i> Gallery </a>
+                <br>
+                <a class="zrey" href="#"><i class="fas fa-envelope " style="margin-right: 5px"></i> MailBox <i class="fas fa-angle-left"></i></a>
+                <br>
+                <a class="zrey" href="#"><i class="fas fa-file-alt " style="margin-right: 5px"></i> Pages <i class="fas fa-angle-left"></i></a>
+                <br>
+                <a class="zrey" href="#"><i class="far fa-plus-square " style="margin-right: 5px"></i> Extras <i class="fas fa-angle-left"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <br>
+        <div class="misc">
+          <h6 class="zrey">MISCELLANEOUS</h6>
+        </div>
+
+      </div>
+      <div class="col col-lg-10 navbar0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active" style="padding: 10px 5px 10px 0;">
+                <a href="#" ><i class="fas fa-bars fa-1x" style="color:#A6A8AB"></i></a>
+              </li>
+              <li class="nav-item bt active">
+                <a class="nav-link  rounded" href="#"><img src="https://image.flaticon.com/icons/png/512/615/615295.png" alt="" style="height:30px;width:30px"> Dashboard </a>
+              </li>
+              <li class="nav-item bt active">
+                <a class="nav-link  rounded" href="#"><img src="https://image.flaticon.com/icons/svg/1284/1284488.svg" alt="" style="height:30px;width:30px"> Meters</a>
+              </li>
+              <li class="nav-item bt active">
+                <a class="nav-link  rounded" href="#"><img src="https://image.flaticon.com/icons/svg/945/945147.svg" alt="" style="height:30px;width:30px"> Settings</a>
+              </li>
+              <li class="nav-item bt active">
+                <a class="nav-link  rounded" href="#"><img src="https://image.flaticon.com/icons/svg/1807/1807651.svg" alt="" style="height:30px;width:30px"> Help</a>
+              </li>
+
+            </ul>
+          </div>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link btn" data-toggle="dropdown" href="#">
+                <i class="far fa-comments"></i>
+                <div class="badge badge-danger navbar-badge _3">
+                  <p style="font-size: 8px; position:relative;bottom:2px; right:1px;">3</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-bell"></i>
+                <div class="badge badge-warning navbar-badge _15">
+                  <p style="font-size: 8px; position:relative;bottom:2px; right:5px;">15</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                <i class="fas fa-th-large"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="row jumbotron firstRow">
+          <div class="col col-lg-3">
+            <div class="upperCards" id="card1">
+              <div class="row">
+                <div class="col col-lg-2">
+                  <div class="fas fa-plug fa-3x" id="plugi" style="color:black"></div>
+                </div>
+                <div class="col" id="upperCard1Content">
+                  <div>Today's Power</div>
+                  <div>Consumption</div>
+                  <div><strong>1.1 Kwh</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-3" style="padding:0">
+            <div class="upperCards" id="card2">
+              <div class="row">
+                <div class="col" style="text-aling: center; padding: 10px 0 0 20px">
+                  <div style="position: relative; right : -20px">Daily</div>
+                  <div>111.07 Kwh</div>
+
+                </div>
+                <div class="col col-lg-3" id="bat">
+                  <div id="bati" style="position:relative;right:10px;">
+                    <h6 style="position:relative; right : 8px">average</h6>
+                    <img src="https://image.flaticon.com/icons/svg/2036/2036946.svg" style="height:35px;width:35px;padding:0;">
+                  </div>
+                </div>
+                <div class="col col-lg-4" style="padding: 10px 0 0 10px">
+                  <div class="upperCard2Content">
+                    <div>Monthly</div>
+                    <div>14 Kwh</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-2">
+            <div class="upperCards" id="card3">
+              <div class="row">
+                <div class="col">
+                    <i class="fas fa-bolt fa-2x" style="padding: 20px 0 10px 15px"></i>
+              </div>
+                <div class="col" style="position:relative; right:40px; top:18px">
+                  <p>
+                    <span>Power</span><span>Factor</span>
+                    <br>
+                    <br>
+                    <strong>1.1</strong>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-4" style="padding:0">
+            <div class="upperCards" id="card 4">
+              <h6 style="text-align:center">Total Energy Consumption Monthly</h6>
+              <div class="row">
+                <div class="col col-lg-2">
+                </div>
+                <div class="col col-lg-3">
+                  <img src="https://image.flaticon.com/icons/svg/2036/2036946.svg" style="height:20px;width:20px;padding:0; position: relative; left : 25px;">
+                  <div>PREDICTED</div>
+                </div>
+                <div class="col col-lg-2">
+                </div>
+                <div class="col">
+                  <div>231 KWH</div>
+                  <div>472 Kwh</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row jumbotron secondRow">
+          <!-- Second row  -->
+          <div class="col col-lg-6">
+            <div class="row2Chart1">
+              <div id="chartContainer" style="height: 120px; width: 100%;"></div>
+            </div>
+          </div>
+          <div class="col col-lg-3" style="padding:0 0 0 15px;">
+            <div class="row2Chart2" style="width: 100%;">
+              <div class="card">
+                <div class="card-header" style="padding:5px 10px;">
+                  Neural Current
+                </div>
+                <div class="card-body" style="padding:10px 0px 0px 40px;">
+                      <input class="knob  animated" value="0" rel="70" data-anglearc="180" data-angleoffset="270" data-fgcolor="#F56954">
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="col col-lg-3" style="height:120px;">
+            <div class="row2Chart3">
+              <div class="knobCanvas">
+                <div class="card">
+                  <div class="card-header" style="padding:5px 10px;">
+                    Frequency
+                  </div>
+                  <div class="card-body" style="padding:15px 0px 15px 90px;text-aling:center;">
+                        <input class="knob  animated" value="0" rel="70"data-fgcolor="#F56954">
+
+                  </div>
+                </div>
+
+
+                <script type="text/javascript">
+                  $('.knob').each(function() {
+
+                    var $this = $(this);
+                    var myVal = $this.attr("rel");
+                    $this.knob();
+
+                    $({
+                      value: 0
+                    }).animate({
+                      value: myVal
+                    }, {
+                      duration: 2000,
+                      easing: 'swing',
+                      step: function() {
+                        $this.val(Math.ceil(this.value)).trigger('change');
+
+                      }
+                    })
+
+                  });
+                </script>
+                <script type="text/javascript">
+                  document.getElementsByTagName("canvas")[0].style.height = "70px";
+                  document.getElementsByTagName("canvas")[0].style.width = "70px";
+                  document.getElementsByClassName("knob")[0].style.margin = "0px";
+                  document.getElementsByClassName("knob")[0].style.left = "120px";
+                  document.getElementsByClassName("knob")[0].style.right = "0px";
+                  document.getElementsByClassName("knob")[0].style.bottom = "18px";
+                </script>
+                <script type="text/javascript">
+                  document.getElementsByTagName("canvas")[1].style.height = "50px";
+                  document.getElementsByTagName("canvas")[1].style.width = "50px";
+                  document.getElementsByClassName("knob")[1].style.margin = "0px";
+                  document.getElementsByClassName("knob")[1].style.left = "120px";
+                  document.getElementsByClassName("knob")[1].style.right = "0px";
+                  document.getElementsByClassName("knob")[1].style.bottom = "13px";
+                </script>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row jumbotron thirdRow">
+          <div class="col ">
+            <div class="row3Chart1">
+              <div id="curve_chart" style="width:100%; height:120px"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row3Chart2">
+              <div id="curve_chart2" style="width:100%; height:120px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row jumbotron fourthRow">
+          <div class="col">
+            <div class="row4Chart1">
+              <div id="curve_chart3" style="width:100%; height:120px"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row4Chart2">
+              <div id="curve_chart4" style="width:100%; height:120px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/8f9f354216.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+
+</html>
